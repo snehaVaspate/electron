@@ -1,0 +1,16 @@
+<h1>Users</h1>
+<button mat-button (click)="openDialog()">Register User</button>
+
+
+
+<div class="userData" style="padding-top:10px" *ngIf="users">
+    <div class="userDataList" *ngFor="let user of users; let i=index">
+        <!-- <img [src]="user.avatar"> -->
+        <div style="padding-bottom: 20px;">{{ user.first_name }} {{ user.last_name }}</div>
+        <div>
+            <span style="padding-right:10px" (click)="edit(i)">edit</span> / 
+            <span (click)="delete(i)">remove</span>
+        </div>
+
+    </div>
+</div>

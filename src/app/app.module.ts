@@ -3,15 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS, MAT_DIALOG_DATA, MatDialogRef, MatButtonModule, MatCardModule, MatIconModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule ,MatSortModule,MatInputModule} from '@angular/material';
+import { MatPaginatorModule, MatSortModule, MatInputModule } from '@angular/material';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateContactDialogComponent } from './create-contact-dialog/create-contact-dialog.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    HomeComponent,
+    CreateContactDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -21,11 +29,26 @@ import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angul
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ],
-  exports:[
+  exports: [
     MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] }
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CreateContactDialogComponent
+  ]
 })
 export class AppModule { }

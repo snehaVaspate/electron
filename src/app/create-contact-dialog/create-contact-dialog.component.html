@@ -1,0 +1,40 @@
+<mat-card>
+    <form [formGroup]="messageForm">
+
+        <h5 *ngIf="success">Your form is valid!</h5>
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>
+                    Id</mat-label>
+                <input formControlName="id" matInput placeholder="Id">
+            </mat-form-field>
+            <div *ngIf="submitted && messageForm.controls.id.errors" class="error">
+                <div *ngIf="messageForm.controls.id.errors.required">Your Id is required</div>
+            </div>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>
+                    First Name</mat-label>
+                <input formControlName="name" matInput placeholder="First Name">
+            </mat-form-field>
+            <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+                <div *ngIf="messageForm.controls.name.errors.required">Your First Name is required</div>
+            </div>
+        </div>
+
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="message" matInput placeholder="Last Name">
+            </mat-form-field>
+            <div *ngIf="submitted && messageForm.controls.message.errors" class="error">
+                <div *ngIf="messageForm.controls.message.errors.required">Your Last Name is required</div>
+            </div>
+        </div>
+
+        <button class="close" mat-button (click)="closeDialog()">Close</button>
+        <button class="submit" mat-button (click)="onSubmit()">Submit</button>
+
+    </form>
+</mat-card>

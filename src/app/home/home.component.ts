@@ -32,12 +32,12 @@ export class HomeComponent implements OnInit {
       console.log("return json",value);
 
       if(value != false){
-        for(let userdata of this.users){
-          if(value.id == userdata.id){
-            let index = this.users.indexOf(value.id);
-            console.log("inedex",index);
-          }
-        }
+        // for(let userdata of this.users){
+        //   if(value.id == userdata.id){
+        //     let index = this.users.indexOf(value.id);
+        //     console.log("inedex",index);
+        //   }
+        // }
         this.users.push(value);
       } 
     });
